@@ -3,10 +3,6 @@
 class Db
 {
 
-    protected static $instance = null;
-
-    protected PDO $dbh;
-
     public static function instance()
     {
         if (null === self::$instance) {
