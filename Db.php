@@ -2,7 +2,7 @@
 
 class Db
 {
-
+// 2
     protected PDO $dbh;
 
     public function __construct()
