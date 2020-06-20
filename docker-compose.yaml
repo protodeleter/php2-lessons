@@ -8,9 +8,9 @@ services:
       - pgdata:/var/lib/postgresql/data
     environment:
       TZ: Europe/Moscow
-      POSTGRES_PASSWORD: profit
-      POSTGRES_USER: profit
-      POSTGRES_DB: profit
+      POSTGRES_PASSWORD: root
+      POSTGRES_USER: postgres
+      POSTGRES_DB: php_project
     ports:
       - 5432:5432
 

@@ -3,17 +3,11 @@
 class Db
 {
 
-    public static function instance()
-    {
-        if (null === self::$instance) {
-            self::$instance = new self();
-        }
-        return self::$instance;
-    }
+    protected $dbh;
 
-    protected function __construct()
+    public function __construct()
     {
-        $this->dbh = new \PDO('pgsql:host=localhost;dbname=profit', 'profit', 'profit');
+        $this->dbh = new \PDO('mysql:host=localhost;dbname=php_project', 'root', 'root');
     }
 
     public function query($sql, $class): array
@@ -23,15 +17,13 @@ class Db
         return $sth->fetchAll(PDO::FETCH_CLASS, $class);
     }
 
-    public function execute($sql, $data): bool
-    {
-        $sth = $this->dbh->prepare($sql);
-        return $sth->execute($data);
-    }
-
-    public function lastId()
-    {
-        return $this->dbh->lastInsertId();
+    public function execute($query, $params=[]) {
+        $sth = $this->dbh->prepare($query);
+        $result = $sth->execute($params);
+        if( $result ) {
+            return true;
+        }
+        return false;
     }
 
 }

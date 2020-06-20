@@ -2,38 +2,24 @@
 
 abstract class Model
 {
-
     protected const TABLE = '';
-
-    public int $id;
+    public  $id;
+    public $data;
 
     public static function findAll(): array
     {
-        $db = Db::instance();
+        $db = new \Db();
         $sql = 'SELECT * FROM ' . static::TABLE;
         return $db->query($sql, static::class);
     }
 
-    public function insert()
-    {
-        $props = get_object_vars($this);
-
-        $columns = [];
-        $binds = [];
-        $data = [];
-        foreach ($props as $name => $value) {
-            $columns[] = $name;
-            $binds[] = ':' . $name;
-            $data[':' . $name] = $value;
+    public static function findById($id) {
+        $db = new \Db();
+        $sql = 'SELECT * FROM ' . static::TABLE . ' WHERE id='. $id;
+        if( $db->query($sql, static::class) ) {
+            return $db->query($sql, static::class);
         }
-
-        $sql = 'INSERT INTO ' . static::TABLE . ' 
-        (' . implode(',', $columns) . ') 
-        VALUES (' . implode(',', $binds) . ' )';
-
-        $db = Db::instance();
-        $db->execute($sql, $data);
-        $this->id = $db->lastId();
+        return false;
     }
 
 }
