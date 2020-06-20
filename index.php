@@ -1,14 +1,16 @@
 <?php
 
+declare(strict_types=1);
+
+use Models\HasPriceInterface;
 use Models\Product;
-use Models\User;
+use Models\Service;
 
-spl_autoload_register(function ($class) {
-    require __DIR__ . '/' . str_replace('\\', '/', $class) . '.php';
-});
+require __DIR__ . '/autoload.php';
 
-$data = Product::findAll();
-var_dump($data);
+$product = new Product();
+$product->title = 'Тестовый товар';
+$product->price = 42000;
+$product->insert();
 
-$data = User::findAll();
-var_dump($data);
+var_dump($product);
