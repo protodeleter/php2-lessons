@@ -5,7 +5,7 @@
  * Date: 18.06.2020
  * Time: 0:46
  */
-require_once '../../index.php';
+require_once __DIR__.'../../index.php';
 
 $title = 'New Title';
 $descr = 'Some Text Some Text Some Text Some Text';

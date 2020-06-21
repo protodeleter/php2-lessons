@@ -6,7 +6,7 @@
  * Time: 0:46
  */
 
-require_once '../../index.php';
+require_once __DIR__.'../../index.php';
 
 $title = 'New Title 3';
 $descr = 'Some Text Some Text Some Text Some Text';
