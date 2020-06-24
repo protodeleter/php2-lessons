@@ -7,11 +7,11 @@
  */
 
 
-use Models\Article;
+//use Models\Article;
 
-include_once __DIR__.'../../index.php';
+//include_once __DIR__.'../../index.php';
 
 //print_r(get_declared_classes());
 //die;
-$article = Article::get_last_three() ;
+//$article = Article::get_last_three() ;
 

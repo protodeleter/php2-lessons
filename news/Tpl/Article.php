@@ -7,11 +7,6 @@
  */
 ?>
 <div>
-    <?php
-    foreach ($single_data as $s_datum){ ?>
-            <span><?php echo $s_datum -> Title . '<br/>'; ?></span>
-            <span><?php echo $s_datum -> Content. '<br/>'; ?></span>
-        <?php
-    }
-    ?>
+    <span><?php echo $single_data -> Title . '<br/>'; ?></span>
+    <span><?php echo $single_data -> Content. '<br/>'; ?></span>
 </div>
