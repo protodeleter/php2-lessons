@@ -4,7 +4,7 @@
         foreach ($data as $datum){
             ?>
             <li>
-                <a href="/lesson-1/news/single.php?art=<?php echo $datum->id; ?>" >
+                <a href="/lesson-1/article.php?art=<?php echo $datum->id; ?>" >
                     <span><?php echo $datum -> Title . '<br/>'; ?></span>
                     <span><?php echo $datum -> Content. '<br/>'; ?></span>
                 </a>

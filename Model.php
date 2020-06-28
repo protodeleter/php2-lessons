@@ -17,8 +17,13 @@ abstract class Model
         $db = new \Db();
         $sql = 'SELECT * FROM '. static::TABLE.' WHERE id='. $id;
         $stmt = $db->query($sql, static::class);
-//        print_r( $stmt[0] );
-        return $stmt[0];
+
+        if( is_object ($stmt[0]) ) {
+            return $stmt[0];
+        } else {
+            die('No such record');
+        }
+
     }
 
 }
